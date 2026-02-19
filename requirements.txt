@@ -1,0 +1,7 @@
+python-dotenv
+pytest
+playwright
+pytest-playwright
+allure-pytest
+pytest-rerunfailures
+jsonschema
