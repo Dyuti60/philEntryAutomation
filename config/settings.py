@@ -9,5 +9,7 @@ class Settings:
     BROWSER = os.getenv("BROWSER","chromium")
     HEADLESS = bool(os.getenv("HEADLESS",True))
     TIMEOUT = int(os.getenv("TIMEOUT",6000))
+    USERNAME = os.getenv("USERNAME")
+    PASSWORD = os.getenv("PASSWORD")
 
 settings = Settings()

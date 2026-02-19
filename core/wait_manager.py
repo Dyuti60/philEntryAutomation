@@ -1,7 +1,7 @@
 from playwright.sync_api import Page
 from utils.logger import Logger
 import time
-
+import allure
 
 class WaitManager:
 
@@ -73,29 +73,35 @@ class WaitManager:
     # =============================
 
     def wait_for_attached(self, locator: str, timeout: int = 5000):
-        Logger.info(f"WAIT → Attached: {locator}")
-        self.page.wait_for_selector(locator, state="attached", timeout=timeout)
+        step_name = f"WAIT → Attached: {locator}"
+        with allure.step(step_name):
+            Logger.info(f"WAIT → Attached: {locator}")
+            self.page.wait_for_selector(locator, state="attached", timeout=timeout)
 
     # =============================
     # Hard Timeout
     # =============================
 
     def wait_for_timeout(self, ms: int):
-        Logger.info(f"WAIT → Timeout: {ms}ms")
-        self.page.wait_for_timeout(ms)
+        step_name = f"WAIT → Timeout: {ms}ms"
+        with allure.step(step_name):
+            Logger.info(f"WAIT → Timeout: {ms}ms")
+            self.page.wait_for_timeout(ms)
 
     # =============================
     # Wait Until Condition True
     # =============================
 
     def wait_until(self, condition_func, timeout=5000, interval=0.5):
-        Logger.info("WAIT → Custom condition")
+        step_name = f"WAIT → Custom condition"
+        with allure.step(step_name):
+            Logger.info("WAIT → Custom condition")
 
-        end_time = time.time() + timeout / 1000
+            end_time = time.time() + timeout / 1000
 
-        while time.time() < end_time:
-            if condition_func():
-                return True
-            time.sleep(interval)
+            while time.time() < end_time:
+                if condition_func():
+                    return True
+                time.sleep(interval)
 
-        raise TimeoutError("Custom wait condition timed out")
+            raise TimeoutError("Custom wait condition timed out")

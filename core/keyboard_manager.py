@@ -1,7 +1,7 @@
 import platform
 from playwright.sync_api import Page
 from utils.logger import Logger
-
+import allure
 
 class KeyboardManager:
 
@@ -17,37 +17,51 @@ class KeyboardManager:
     # =============================
 
     def press_enter(self):
-        Logger.info("KEYBOARD → Press ENTER")
-        self.page.keyboard.press("Enter")
+        step_name = f"KEYBOARD → Press ENTER "
+        with allure.step(step_name):
+            Logger.info("KEYBOARD → Press ENTER")
+            self.page.keyboard.press("Enter")
 
     def press_tab(self):
-        Logger.info("KEYBOARD → Press TAB")
-        self.page.keyboard.press("Tab")
+        step_name = f"KEYBOARD → Press TAB "
+        with allure.step(step_name):
+            Logger.info("KEYBOARD → Press TAB")
+            self.page.keyboard.press("Tab")
 
     def press_escape(self):
-        Logger.info("KEYBOARD → Press ESCAPE")
-        self.page.keyboard.press("Escape")
+        step_name = f"KEYBOARD → Press ESCAPE"
+        with allure.step(step_name):
+            Logger.info("KEYBOARD → Press ESCAPE")
+            self.page.keyboard.press("Escape")
 
     # =============================
     # Shortcut Keys
     # =============================
 
     def select_all(self):
-        Logger.info("KEYBOARD → Select All")
-        self.page.keyboard.press(f"{self.modifier}+A")
+        step_name = f"KEYBOARD → Select All "
+        with allure.step(step_name):
+            Logger.info("KEYBOARD → Select All")
+            self.page.keyboard.press(f"{self.modifier}+A")
 
     def copy(self):
-        Logger.info("KEYBOARD → Copy")
-        self.page.keyboard.press(f"{self.modifier}+C")
+        step_name = f"KEYBOARD → Copy "
+        with allure.step(step_name):
+            Logger.info("KEYBOARD → Copy")
+            self.page.keyboard.press(f"{self.modifier}+C")
 
     def paste(self):
-        Logger.info("KEYBOARD → Paste")
-        self.page.keyboard.press(f"{self.modifier}+V")
+        step_name = f"KEYBOARD → Paste "
+        with allure.step(step_name):
+            Logger.info("KEYBOARD → Paste")
+            self.page.keyboard.press(f"{self.modifier}+V")
 
     # =============================
     # Typing
     # =============================
 
     def type_text(self, text: str, delay: float = 0):
-        Logger.info(f"KEYBOARD → Type text: {text}")
-        self.page.keyboard.type(text, delay=delay)
+        step_name = f"KEYBOARD → Type text: {text}"
+        with allure.step(step_name):
+            Logger.info(f"KEYBOARD → Type text: {text}")
+            self.page.keyboard.type(text, delay=delay)
