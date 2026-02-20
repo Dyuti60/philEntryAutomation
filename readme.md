@@ -1,6 +1,11 @@
 ## Pytest Playwright Framework
-- Create virtual enviornment using command: python -m venv venv
+- Create virtual enviornment using command: 
+    - windows: python -m venv venv
+    - linux: python3 -m venv venv
+- Activate venv
+    - Linux: source venv\bin\activate
+    - window: venv\Scripts\activate
+- Command to install playwright browsers: playwright install
 - Create directories: allure-report, allure-results, har, logs, screenshots, traces and videos
 - Install all requirements: pip install -r requirements.txt
 - Command to run tests: pytest
-

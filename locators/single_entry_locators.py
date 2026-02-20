@@ -1,0 +1,18 @@
+class SingleEntry:
+    receive_arghya_sidebar_element="//div[contains(@class,'side-tab-title') and contains(text(),'Receive arghya')]"
+    single_entry_toggle_element="//div[contains(@class,'lot-entry') and contains(text(),'Single entry')]"
+    search_familycode_input_element="//input[@class='sat-input-control-primary ng-pristine ng-invalid ng-touched']"
+    search_familycode_button_element="//button[@class='sat-primary-btn' and contains(text(),'Search')]"
+    name_search_button_element=""
+    new_fc_button_element=""
+    reset_subtotal_button_element=""
+    receive_history_filter_button_element=""
+    receive_history_search_input_element=""
+    
+    receive_history_apId_header_text=""
+    receive_history_nameFC_header_text=""
+    receive_history_payMethod_header_text=""
+    receive_history_dateTime_header_text=""
+    receive_history_amount_header_text=""
+    receive_history_entryBy_header_text=""
+    receive_history_actions_header_text=""
