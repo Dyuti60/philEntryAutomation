@@ -61,7 +61,7 @@ class InjectionRegistry:
 
     def apply(self, profile_name: str):
         if hasattr(self, profile_name):
-            Logger.info(f"Applying Injection Profile → {profile_name}")
+            Logger.info(f"Applying Injection Profile -> {profile_name}")
             getattr(self, profile_name)()
         else:
-            Logger.warn(f"Injection profile not found → {profile_name}")
+            Logger.warn(f"Injection profile not found -> {profile_name}")

@@ -25,7 +25,7 @@ class NetworkLogger:
 
             self.logs.append(entry)
 
-            Logger.info(f"REQUEST → {request.method} {request.url}")
+            Logger.info(f"REQUEST -> {request.method} {request.url}")
 
         def on_response(response):
             entry = {
@@ -45,7 +45,7 @@ class NetworkLogger:
 
             # Log error responses
             if response.status >= 400:
-                Logger.error(f"Network Error {response.status} → {response.url}")
+                Logger.error(f"Network Error {response.status} -> {response.url}")
 
             if response.status>=500:
                 self.server_errors.append(entry)

@@ -12,7 +12,7 @@ class CommonAssert:
     @allure.step("Verify condition is TRUE")
     def is_true(condition: bool, message: str = None):
         assert condition is True, message or "Condition is False"
-        Logger.info("GENERIC ASSERT → Condition is True")
+        Logger.info("GENERIC ASSERT -> Condition is True")
 
     # ============================
     # Is False
@@ -22,7 +22,7 @@ class CommonAssert:
     @allure.step("Verify condition is FALSE")
     def is_false(condition: bool, message: str = None):
         assert condition is False, message or "Condition is True"
-        Logger.info("GENERIC ASSERT → Condition is False")
+        Logger.info("GENERIC ASSERT -> Condition is False")
 
     # ============================
     # Is Not Null
@@ -32,7 +32,7 @@ class CommonAssert:
     @allure.step("Verify value is NOT NULL")
     def is_not_null(value, message: str = None):
         assert value is not None, message or "Value is None"
-        Logger.info("GENERIC ASSERT → Value is not null")
+        Logger.info("GENERIC ASSERT -> Value is not null")
 
     # ============================
     # Is Defined (Python equivalent)
@@ -42,7 +42,7 @@ class CommonAssert:
     @allure.step("Verify value is defined")
     def is_defined(value, message: str = None):
         assert value is not None, message or "Value is undefined"
-        Logger.info("GENERIC ASSERT → Value is defined")
+        Logger.info("GENERIC ASSERT -> Value is defined")
 
     # ============================
     # Equals
@@ -54,4 +54,4 @@ class CommonAssert:
         assert actual == expected, message or \
             f"Expected '{expected}', got '{actual}'"
 
-        Logger.info("GENERIC ASSERT → Values matched")
+        Logger.info("GENERIC ASSERT -> Values matched")

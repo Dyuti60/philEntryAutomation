@@ -7,9 +7,10 @@ class Settings:
     BASE_URL = os.getenv("BASE_URL")
     API_BASE_URL = os.getenv("API_BASE_URL")
     BROWSER = os.getenv("BROWSER","chromium")
-    HEADLESS = bool(os.getenv("HEADLESS",True))
+    HEADLESS = os.getenv("HEADLESS","false").lower()=="true"
     TIMEOUT = int(os.getenv("TIMEOUT",6000))
-    USERNAME = os.getenv("USERNAME")
-    PASSWORD = os.getenv("PASSWORD")
+    USERNAME = os.getenv("APP_USERNAME")
+    PASSWORD = os.getenv("APP_PASSWORD")
+    
 
 settings = Settings()

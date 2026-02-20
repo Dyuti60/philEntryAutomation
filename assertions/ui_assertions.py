@@ -17,7 +17,7 @@ class UIAssert:
         assert actual_title == expected_title, message or \
             f"Expected title '{expected_title}', got '{actual_title}'"
 
-        Logger.info(f"UI ASSERT → Title matched: {expected_title}")
+        Logger.info(f"UI ASSERT -> Title matched: {expected_title}")
 
     # ============================
     # URL Contains
@@ -29,7 +29,7 @@ class UIAssert:
         assert partial_url in current_url, message or \
             f"URL '{current_url}' does not contain '{partial_url}'"
 
-        Logger.info(f"UI ASSERT → URL contains: {partial_url}")
+        Logger.info(f"UI ASSERT -> URL contains: {partial_url}")
 
     # ============================
     # Element Visible
@@ -40,7 +40,7 @@ class UIAssert:
         visible = self.page.is_visible(locator)
         assert visible, message or f"Element not visible: {locator}"
 
-        Logger.info(f"UI ASSERT → Element visible: {locator}")
+        Logger.info(f"UI ASSERT -> Element visible: {locator}")
 
     # ============================
     # Text Equals
@@ -54,7 +54,7 @@ class UIAssert:
         assert actual_text == expected_text, message or \
             f"Expected '{expected_text}', got '{actual_text}'"
 
-        Logger.info(f"UI ASSERT → Text matched: {expected_text}")
+        Logger.info(f"UI ASSERT -> Text matched: {expected_text}")
 
     # ============================
     # Text Contains
@@ -67,4 +67,4 @@ class UIAssert:
         assert expected_text in actual_text, message or \
             f"Text does not contain '{expected_text}'"
 
-        Logger.info(f"UI ASSERT → Text contains: {expected_text}")
+        Logger.info(f"UI ASSERT -> Text contains: {expected_text}")

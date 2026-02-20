@@ -13,7 +13,7 @@ class WaitManager:
     # =============================
 
     def for_network_idle(self, timeout: int = 5000):
-        Logger.info("WAIT → Network idle")
+        Logger.info("WAIT -> Network idle")
         self.page.wait_for_load_state("networkidle", timeout=timeout)
 
     # # =============================
@@ -21,7 +21,7 @@ class WaitManager:
     # # =============================
 
     # def for_dom_stable(self, timeout: int = 5000):
-    #     Logger.info("WAIT → DOM stable")
+    #     Logger.info("WAIT -> DOM stable")
 
     #     # Wait for DOM to stop changing
     #     self.page.wait_for_function(
@@ -57,7 +57,7 @@ class WaitManager:
     # =============================
 
     def wait_for_visible(self, locator: str, timeout: int = 5000):
-        Logger.info(f"WAIT → Visible: {locator}")
+        Logger.info(f"WAIT -> Visible: {locator}")
         self.page.wait_for_selector(locator, state="visible", timeout=timeout)
 
     # =============================
@@ -65,7 +65,7 @@ class WaitManager:
     # =============================
 
     def wait_for_hidden(self, locator: str, timeout: int = 5000):
-        Logger.info(f"WAIT → Hidden: {locator}")
+        Logger.info(f"WAIT -> Hidden: {locator}")
         self.page.wait_for_selector(locator, state="hidden", timeout=timeout)
 
     # =============================
@@ -73,9 +73,9 @@ class WaitManager:
     # =============================
 
     def wait_for_attached(self, locator: str, timeout: int = 5000):
-        step_name = f"WAIT → Attached: {locator}"
+        step_name = f"WAIT -> Attached: {locator}"
         with allure.step(step_name):
-            Logger.info(f"WAIT → Attached: {locator}")
+            Logger.info(f"WAIT -> Attached: {locator}")
             self.page.wait_for_selector(locator, state="attached", timeout=timeout)
 
     # =============================
@@ -83,9 +83,9 @@ class WaitManager:
     # =============================
 
     def wait_for_timeout(self, ms: int):
-        step_name = f"WAIT → Timeout: {ms}ms"
+        step_name = f"WAIT -> Timeout: {ms}ms"
         with allure.step(step_name):
-            Logger.info(f"WAIT → Timeout: {ms}ms")
+            Logger.info(f"WAIT -> Timeout: {ms}ms")
             self.page.wait_for_timeout(ms)
 
     # =============================
@@ -93,9 +93,9 @@ class WaitManager:
     # =============================
 
     def wait_until(self, condition_func, timeout=5000, interval=0.5):
-        step_name = f"WAIT → Custom condition"
+        step_name = f"WAIT -> Custom condition"
         with allure.step(step_name):
-            Logger.info("WAIT → Custom condition")
+            Logger.info("WAIT -> Custom condition")
 
             end_time = time.time() + timeout / 1000
 

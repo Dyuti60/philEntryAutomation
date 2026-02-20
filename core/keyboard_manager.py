@@ -17,21 +17,21 @@ class KeyboardManager:
     # =============================
 
     def press_enter(self):
-        step_name = f"KEYBOARD → Press ENTER "
+        step_name = f"KEYBOARD -> Press ENTER "
         with allure.step(step_name):
-            Logger.info("KEYBOARD → Press ENTER")
+            Logger.info("KEYBOARD -> Press ENTER")
             self.page.keyboard.press("Enter")
 
     def press_tab(self):
-        step_name = f"KEYBOARD → Press TAB "
+        step_name = f"KEYBOARD -> Press TAB "
         with allure.step(step_name):
-            Logger.info("KEYBOARD → Press TAB")
+            Logger.info("KEYBOARD -> Press TAB")
             self.page.keyboard.press("Tab")
 
     def press_escape(self):
-        step_name = f"KEYBOARD → Press ESCAPE"
+        step_name = f"KEYBOARD -> Press ESCAPE"
         with allure.step(step_name):
-            Logger.info("KEYBOARD → Press ESCAPE")
+            Logger.info("KEYBOARD -> Press ESCAPE")
             self.page.keyboard.press("Escape")
 
     # =============================
@@ -39,21 +39,21 @@ class KeyboardManager:
     # =============================
 
     def select_all(self):
-        step_name = f"KEYBOARD → Select All "
+        step_name = f"KEYBOARD -> Select All "
         with allure.step(step_name):
-            Logger.info("KEYBOARD → Select All")
+            Logger.info("KEYBOARD -> Select All")
             self.page.keyboard.press(f"{self.modifier}+A")
 
     def copy(self):
-        step_name = f"KEYBOARD → Copy "
+        step_name = f"KEYBOARD -> Copy "
         with allure.step(step_name):
-            Logger.info("KEYBOARD → Copy")
+            Logger.info("KEYBOARD -> Copy")
             self.page.keyboard.press(f"{self.modifier}+C")
 
     def paste(self):
-        step_name = f"KEYBOARD → Paste "
+        step_name = f"KEYBOARD -> Paste "
         with allure.step(step_name):
-            Logger.info("KEYBOARD → Paste")
+            Logger.info("KEYBOARD -> Paste")
             self.page.keyboard.press(f"{self.modifier}+V")
 
     # =============================
@@ -61,7 +61,7 @@ class KeyboardManager:
     # =============================
 
     def type_text(self, text: str, delay: float = 0):
-        step_name = f"KEYBOARD → Type text: {text}"
+        step_name = f"KEYBOARD -> Type text: {text}"
         with allure.step(step_name):
-            Logger.info(f"KEYBOARD → Type text: {text}")
+            Logger.info(f"KEYBOARD -> Type text: {text}")
             self.page.keyboard.type(text, delay=delay)

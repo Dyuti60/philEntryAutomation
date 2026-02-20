@@ -5,3 +5,4 @@ pytest-playwright
 allure-pytest
 pytest-rerunfailures
 jsonschema
+pyautogui

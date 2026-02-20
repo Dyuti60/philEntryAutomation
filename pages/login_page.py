@@ -2,7 +2,7 @@ from core import ActionManager, WaitManager, KeyboardManager, MouseManager
 from assertions import UIAssert
 from locators import LoginLocators
 from utils.logger import Logger
-from config.settings import Settings
+from config.settings import settings
 
 class LoginPage:
     
@@ -22,11 +22,12 @@ class LoginPage:
         return self
     
     def enter_username(self):
-        self.action.clear_and_type(LoginLocators.usernameElement,Settings.USERNAME)
+        print("DEBUG USERNAME:", repr(settings.USERNAME))
+        self.action.type(LoginLocators.usernameElement,settings.USERNAME)
         return self
 
     def enter_password(self):
-        self.action.clear_and_type(LoginLocators.passwordElement,Settings.PASSWORD)
+        self.action.type(LoginLocators.passwordElement,settings.PASSWORD)
         return self
     
     def click_login(self):

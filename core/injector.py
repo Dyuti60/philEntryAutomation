@@ -13,7 +13,7 @@ class Injector:
     # ============================
 
     def _register_route(self, url_pattern, handler):
-        Logger.info(f"Registering route interception → {url_pattern}")
+        Logger.info(f"Registering route interception -> {url_pattern}")
         self.page.route(url_pattern, handler)
         self._routes.append(url_pattern)
 
@@ -32,11 +32,11 @@ class Injector:
                     except Exception:
                         body = request.post_data
 
-                Logger.info(f"Original Request → {request.url} | {body}")
+                Logger.info(f"Original Request -> {request.url} | {body}")
 
                 modified_body = modifier_func(body) if body else body
 
-                Logger.info(f"Modified Request → {modified_body}")
+                Logger.info(f"Modified Request -> {modified_body}")
 
                 route.continue_(
                     post_data=json.dumps(modified_body)
@@ -65,11 +65,11 @@ class Injector:
                 except Exception:
                     body = response.text()
 
-                Logger.info(f"Original Response → {request.url} | {body}")
+                Logger.info(f"Original Response -> {request.url} | {body}")
 
                 modified_body = modifier_func(body)
 
-                Logger.info(f"Modified Response → {modified_body}")
+                Logger.info(f"Modified Response -> {modified_body}")
 
                 route.fulfill(
                     response=response,
@@ -94,7 +94,7 @@ class Injector:
     def mock_api(self, url_pattern, mock_body, status=200):
 
         def handler(route, request):
-            Logger.info(f"Mocking API → {request.url}")
+            Logger.info(f"Mocking API -> {request.url}")
 
             route.fulfill(
                 status=status,
@@ -111,7 +111,7 @@ class Injector:
     def abort_request(self, url_pattern):
 
         def handler(route, request):
-            Logger.warn(f"Aborting request → {request.url}")
+            Logger.warn(f"Aborting request -> {request.url}")
             route.abort()
 
         self._register_route(url_pattern, handler)
@@ -126,7 +126,7 @@ class Injector:
             updated_headers = request.headers.copy()
             updated_headers.update(headers)
 
-            Logger.info(f"Injecting headers → {headers}")
+            Logger.info(f"Injecting headers -> {headers}")
 
             route.continue_(headers=updated_headers)
 

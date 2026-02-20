@@ -12,7 +12,7 @@ class MouseManager:
     # Retry Wrapper (Optional Safety)
     # =============================
 
-    def _retry(self, action, retries=3, delay=0.5):
+    def _retry(self, action, retries=1, delay=0.5):
         for i in range(retries):
             try:
                 action()
@@ -31,11 +31,10 @@ class MouseManager:
         def action():
             step_name = f"Mouse -> Hover: "
             with allure.step(step_name):
-                Logger.info(f"MOUSE → Hover: {locator}")
+                Logger.info(f"MOUSE -> Hover: {locator}")
                 element = self.page.locator(locator)
                 element.wait_for(state="visible")
                 element.hover()
-
         self._retry(action)
 
     # =============================
@@ -46,7 +45,7 @@ class MouseManager:
         def action():
             step_name = f"Mouse -> Right click: "
             with allure.step(step_name):
-                Logger.info(f"MOUSE → Right click: {locator}")
+                Logger.info(f"MOUSE -> Right click: {locator}")
                 element = self.page.locator(locator)
                 element.wait_for(state="visible")
                 element.click(button="right")
@@ -59,9 +58,9 @@ class MouseManager:
 
     def double_click(self, locator: str):
         def action():
-            step_name = f"MOUSE → Double click: {locator}"
+            step_name = f"MOUSE -> Double click: {locator}"
             with allure.step(step_name):
-                Logger.info(f"MOUSE → Double click: {locator}")
+                Logger.info(f"MOUSE -> Double click: {locator}")
                 element = self.page.locator(locator)
                 element.wait_for(state="visible")
                 element.dblclick()
@@ -74,9 +73,9 @@ class MouseManager:
 
     def drag_and_drop(self, source: str, target: str):
         def action():
-            step_name = f"MOUSE → Drag {source} → {target}"
+            step_name = f"MOUSE -> Drag {source} -> {target}"
             with allure.step(step_name):
-                Logger.info(f"MOUSE → Drag {source} → {target}")
+                Logger.info(f"MOUSE -> Drag {source} -> {target}")
 
                 source_el = self.page.locator(source)
                 target_el = self.page.locator(target)

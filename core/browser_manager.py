@@ -1,15 +1,19 @@
 from config.settings import settings
 from utils.logger import Logger
 import os
+import pyautogui
 
 class BrowserManager:
 
     @staticmethod
     def launch_browser(playwright):
         Logger.info(f"Launching browser: {settings.BROWSER}")
-
+        width, height = pyautogui.size()
         browser = getattr(playwright, settings.BROWSER).launch(
-            headless=settings.HEADLESS
+            headless=settings.HEADLESS,
+            args=["--start-maximized",
+                  "--window-position=0,0",
+                  f"--window-size={width},{height}"]
         )
 
         return browser
@@ -20,8 +24,10 @@ class BrowserManager:
         os.makedirs("har",exist_ok=True)
         os.makedirs("videos",exist_ok=True)
 
+        width, height = pyautogui.size()
         context = browser.new_context(
-            base_url=settings.BASE_URL,
+            base_url=settings.BASE_URL,           
+            viewport={"width": width, "height": height},
             record_har_path=f"har/{test_name}.har",
             record_video_dir="videos/"
         )
