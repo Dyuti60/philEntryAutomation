@@ -7,6 +7,7 @@ class BrowserManager:
     @staticmethod
     def launch_browser(playwright):
         Logger.info(f"Launching browser: {settings.BROWSER}")
+        #width, height = pyautogui.size()
         browser = getattr(playwright, settings.BROWSER).launch(
             headless=settings.HEADLESS,
             args=["--start-maximized"]#,
@@ -21,7 +22,8 @@ class BrowserManager:
         Logger.info("Creating new browser context")
         os.makedirs("har",exist_ok=True)
         os.makedirs("videos",exist_ok=True)
-        
+
+        #width, height = pyautogui.size()
         context = browser.new_context(
             base_url=settings.BASE_URL,           
             viewport={"width": 1920, "height": 1080},
